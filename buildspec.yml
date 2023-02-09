@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+    commands:
+      - wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+      - sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+      - yum install -y apache-maven
+      - yum install -y java-1.8.0-devel
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - pwd
+      - mvn -v
+      - mvn clean install package
+      - pwd
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - webapp/target/webapp.war
+    - appspec.yml
+    - scripts/install_dependencies
+    - scripts/start_server
+  discard-paths: yes

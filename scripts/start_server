@@ -1,0 +1,3 @@
+#!/bin/bash
+sh /opt/apache-tomcat-8.5.35/bin/startup.sh
+

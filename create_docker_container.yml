@@ -1,0 +1,20 @@
+--- 
+- 
+  become: true
+  hosts: all
+  tasks: 
+    - 
+      ignore_errors: true
+      name: "stop previous version docker"
+      shell: "docker stop webmagic_demo"
+    - 
+      ignore_errors: true
+      name: "remove stopped container"
+      shell: "docker rm -f webmagic_demo"
+    - 
+      ignore_errors: true
+      name: "remove docker images"
+      shell: "docker image rm -f dab8106/webmagic_demo"
+    - 
+      name: "create docker image"
+      shell: "docker run -d --name webmagic_demo -p 8090:8080 dab8106/webmagic_demo"

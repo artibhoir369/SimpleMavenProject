@@ -1,0 +1,6 @@
+version: '3'
+services:
+  javapp:
+    image: "dab8106/webmagic_demo"
+    ports:
+      - "8080:8080"

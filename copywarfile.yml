@@ -1,0 +1,10 @@
+--- 
+- 
+  become: true
+  hosts: all
+  tasks: 
+    - 
+      copy: 
+        dest: /opt/apache-tomcat-8.5.35/webapps
+        src: /home/ansadmin/webapp.war
+      name: "copy jar/war onto tomcat servers"
