@@ -1,21 +1,23 @@
 pipeline{
     agent any
+    
     tools{
         maven "maven"
         jdk "jdk"
     }
+    
     stages{
-        stage("checkout"){
+        stage(checkout){
             steps{
                 git 'https://github.com/artibhoir369/SimpleMavenProject.git'
             }
         }
-        stage("test"){
+        stage(Test){
             steps{
                 sh "mvn test"
             }
         }
-        stage("build"){
+        stage(build){
             steps{
                 sh "mvn clean install"
             }
