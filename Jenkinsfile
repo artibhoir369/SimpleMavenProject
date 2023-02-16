@@ -26,7 +26,7 @@ pipeline{
         
         stage('Tag Image with Repository Name') {
             steps {
-                sh 'sudo docker tag java-app:latest 091137789371.dkr.ecr.us-east-1.amazonaws.com/web1:latest'
+                sh 'sudo docker tag java-app 091137789371.dkr.ecr.us-east-1.amazonaws.com/web1'
             }
         }
         
@@ -48,7 +48,7 @@ pipeline{
         stage('Pushing the image') {
             steps {
 //                 sh 'sudo docker push artibhoir369/java-app'
-                sh 'sudo docker push 091137789371.dkr.ecr.us-east-1.amazonaws.com/web1:latest'
+                sh 'sudo docker push 091137789371.dkr.ecr.us-east-1.amazonaws.com/web1'
             }
         }
     }
