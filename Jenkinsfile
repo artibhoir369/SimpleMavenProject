@@ -54,7 +54,6 @@ pipeline{
             steps {
                 sh 'ansible-playbook create_docker_container.yml'
             }
-        }    
-            
+        }          
     }
 }
