@@ -36,7 +36,7 @@ pipeline{
         	    sh "sudo docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                 }
             }
-        
+        }
 //         stage('DockerLogin') {
 //             steps{
 //                 sh 'sudo aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 091137789371.dkr.ecr.us-east-1.amazonaws.com'
