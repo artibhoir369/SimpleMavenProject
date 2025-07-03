@@ -20,9 +20,6 @@ RUN mvn clean package -DskipTests
 # Stage 2: Create the final image
 FROM tomcat:8-jre8
 
-# Maintainer information (optional)
-MAINTAINER "info@webmagicinformatica.com"
-
 # Copy the WAR file from the builder stage to Tomcat's webapps directory.
 # The WAR file will be located at /app/webapp/target/webapp.war in the 'builder' stage.
 COPY --from=builder /app/webapp/target/webapp.war /usr/local/tomcat/webapps/
